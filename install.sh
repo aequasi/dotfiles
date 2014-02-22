@@ -1,10 +1,19 @@
 #!/bin/bash
 
-sudo apt-get update && sudo apt-get upgrade -y
-sudo apt-get install -y git vim hub
+if hash apt-get 2>/dev/null; then
+    sudo apt-get update && sudo apt-get upgrade -y
+    sudo apt-get install -y git vim build-essential
+else
+    if hash brew 2>/dev/null;
+        echo "Homebrew already installed"
+    else
+        ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+    fi
+    brew install git
+fi
 
-git clone https://github.com/aequasi/dotfiles.git
-cd dotfiles
+git clone https://github.com/aequasi/dotfiles.git /tmp/dotfiles
+cd /tmp/dotfiles
 
 bold=`tput bold`
 normal=`tput sgr0`
@@ -37,3 +46,6 @@ read email
 echo "[user]"$'\n\t'"email = $email"$'\n\t'"name = $name"$'\n' >> ~/.gitconfig
 
 echo $'\n'"** Finished!"
+
+cd -
+rm -r /tmp/dotfiles
