@@ -4,7 +4,7 @@ if hash apt-get 2>/dev/null; then
     sudo apt-get update && sudo apt-get upgrade -y
     sudo apt-get install -y git vim build-essential
 else
-    if hash brew 2>/dev/null;
+    if hash brew 2>/dev/null; then
         echo "Homebrew already installed"
     else
         ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
