@@ -18,7 +18,7 @@ cd /tmp/dotfiles
 bold=`tput bold`
 normal=`tput sgr0`
 
-echo "${bold}Setting up Dot Files for this machine!${normal}"$'\n'
+echo "${bold}Setting up Dot Files for this machine!${normal}\n"
 
 # Update PHP Syntax for this machine
 if hash php 2>/dev/null; then
@@ -32,20 +32,21 @@ if [ -e ~/.vim ]; then
 fi
 
 # Copy the required files to the home directory
+rm -r ~/.bash_git ~/.bash_profile ~/.bashrc ~/.gitconfig ~/.gitignore_global ~/.vimrc ~/.vim ~/git-completion.bash
 cp -r .bash_git .bash_profile .bashrc .gitconfig .gitignore_global .vimrc .vim git-completion.bash ~/
 echo "Dot Files copied into your home directory..."
-echo "Done."$'\n\n'
+echo "Done.\n\n"
 
 # Setup .gitconfig
-echo "${bold}Let's configure your Git configuration!${normal}"$'\n'
+echo "${bold}Let's configure your Git configuration!${normal}\n"
 echo "What is your full name? (ex: John Doe)"
 read name
 echo "And what is your email address? (ex: test@gmail.com)"
 read email
 
-echo "[user]"$'\n\t'"email = $email"$'\n\t'"name = $name"$'\n' >> ~/.gitconfig
+echo "[user]\n\temail = $email\n\tname = $name\n" >> ~/.gitconfig
 
-echo $'\n'"** Finished!"
+echo "\n** Finished!"
 
 cd -
 rm -r /tmp/dotfiles
