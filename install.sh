@@ -1,13 +1,21 @@
 #!/bin/bash
 
+sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get install -y git vim hub
+
+git clone https://github.com/aequasi/dotfiles.git
+cd dotfiles
+
 bold=`tput bold`
 normal=`tput sgr0`
 
 echo "${bold}Setting up Dot Files for this machine!${normal}"$'\n'
 
 # Update PHP Syntax for this machine
-php vim-php-syntax/update_syntax.php
-echo "PHP Syntax updated based on installed packages..."
+if hash php 2>/dev/null; then
+    php vim-php-syntax/update_syntax.php
+    echo "PHP Syntax updated based on installed packages..."
+fi
 
 # Remove any existing .vim folder
 if [ -e ~/.vim ]; then
