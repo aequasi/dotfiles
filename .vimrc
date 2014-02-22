@@ -65,13 +65,6 @@
 
 "Set Colorscheme {
     set background=dark
-
-    " None GUI versions of VIM don't support italics
-    if !has("gui_macvim")
-        let g:gruvbox_italic = 0
-        let g:gruvbox_termcolors=16
-    endif
-    colorscheme gruvbox 
 "}
 
 "Auto Doc Blocks {
