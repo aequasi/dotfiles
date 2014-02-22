@@ -50,4 +50,4 @@ echo "\n** Finished!"
 
 cd -
 rm -r /tmp/dotfiles
-source ~/.bashrc
+echo "Please run 'source ~/.bashrc'"
