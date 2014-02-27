@@ -20,7 +20,7 @@ alias cdb='cd -'
 
 # Show human friendly numbers and colors
 alias df='df -h'
-alias ll='ls -alGh'
+alias l='ls -alGh'
 alias ls='ls -Gh'
 alias du='du -h -d 2'
 
@@ -105,7 +105,6 @@ alias gbb='git bisect bad'
 # Common shell functions
 alias less='less -r'
 alias tf='tail -f'
-alias l='less'
 alias lh='ls -alt | head' # see the last modified files
 alias screen='TERM=screen screen'
 alias cl='clear'
